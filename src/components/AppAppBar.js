@@ -24,11 +24,9 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   borderRadius: `calc(${theme.shape.borderRadius}px + 8px)`,
   backdropFilter: 'blur(24px)',
   border: '1px solid',
-  borderColor: (theme.vars || theme).palette.divider,
-  backgroundColor: theme.vars
-    ? `rgba(${theme.vars.palette.background.defaultChannel} / 0.4)`
-    : alpha(theme.palette.background.default, 0.4),
-  boxShadow: (theme.vars || theme).shadows[1],
+  borderColor: theme.palette.divider,
+  backgroundColor: alpha(theme.palette.background.default, 0.4), // Light mode background
+  boxShadow: theme.shadows[1],
   padding: '8px 12px',
 }));
 
@@ -56,10 +54,9 @@ export default function AppAppBar() {
   return (
     <AppBar
       position="fixed"
-      enableColorOnDark
       sx={{
         boxShadow: 0,
-        bgcolor: 'transparent',
+        bgcolor: 'transparent', // Transparent background
         backgroundImage: 'none',
         mt: 'calc(var(--template-frame-height, 0px) + 28px)',
       }}
@@ -178,7 +175,7 @@ export default function AppAppBar() {
             Serene MINDS is Live!
           </Typography>
           <Typography id="modal-description" sx={{ mb: 3 }}>
-            Use Desktop, Laptop, or any bigger screen to access for a better
+            Use Desktop, Laptop, or any other bigger screen to access for a better
             experience. We are working to make it available on mobile.
           </Typography>
           <Button variant="contained" onClick={handleCloseModal}>

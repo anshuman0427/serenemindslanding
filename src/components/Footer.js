@@ -7,7 +7,6 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
 
 function Copyright() {
   return (
@@ -26,7 +25,7 @@ export default function Footer() {
   return (
     <Box
       sx={{
-        backgroundColor: 'background.paper',
+        backgroundColor: '#ffffff', // Explicitly set light background
         color: 'text.secondary',
         py: 6,
         borderTop: '1px solid',
@@ -64,7 +63,6 @@ export default function Footer() {
               >
                 <LinkedInIcon />
               </IconButton>
-              
             </Stack>
           </Box>
 
@@ -75,9 +73,6 @@ export default function Footer() {
             <Link color="inherit" variant="body2" href="#">
               Highlights
             </Link>
-            {/* <Link color="inherit" variant="body2" href="#">
-              Testimonials
-            </Link> */}
             <Link color="inherit" variant="body2" href="#">
               Features
             </Link>

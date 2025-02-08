@@ -44,12 +44,13 @@ export default function Hero() {
 
   return (
     <Box
-      sx={(theme) => ({
+      sx={{
         width: '100%',
         backgroundRepeat: 'no-repeat',
         backgroundImage:
           'radial-gradient(ellipse 80% 50% at 50% -20%, hsl(210, 100%, 90%), transparent)',
-      })}
+        backgroundColor: '#ffffff', // Explicitly set light background
+      }}
     >
       <Container
         sx={{
@@ -72,18 +73,19 @@ export default function Hero() {
               textAlign: 'center',
               whiteSpace: { xs: 'normal', sm: 'normal', md: 'nowrap' },
               lineHeight: 1.2,
+              color: 'text.primary', // Ensure light mode text color
             }}
           >
             The simplest way to manage your
           </Typography>
           <Typography
             variant="h1"
-            sx={(theme) => ({
+            sx={{
               fontSize: 'clamp(2.5rem, 8vw, 3.5rem)',
               textAlign: 'center',
               color: 'primary.main',
               lineHeight: 1.2,
-            })}
+            }}
           >
             Mental Health Practice
           </Typography>
@@ -149,7 +151,7 @@ export default function Hero() {
             Serene MINDS is Live!
           </Typography>
           <Typography id="modal-description" sx={{ mb: 3 }}>
-            Use Desktop, Laptop, or any bigger screen to access for a better
+            Use Desktop, Laptop, or any other bigger screen to access for a better
             experience. We are working to make it available on mobile.
           </Typography>
           <Button variant="contained" onClick={handleCloseModal}>
