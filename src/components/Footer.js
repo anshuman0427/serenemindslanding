@@ -72,19 +72,19 @@ export default function Footer() {
             <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'text.primary' }}>
               Product
             </Typography>
-            <Link color="inherit" variant="body2" href="highlights">
+            <Link color="inherit" variant="body2" href="#highlights">
               Highlights
             </Link>
             {/* <Link color="inherit" variant="body2" href="#">
               Testimonials
             </Link> */}
-            <Link color="inherit" variant="body2" href="features">
+            <Link color="inherit" variant="body2" href="#features">
               Features
             </Link>
-            <Link color="inherit" variant="body2" href="pricing">
+            <Link color="inherit" variant="body2" href="#pricing">
               Pricing
             </Link>
-            <Link color="inherit" variant="body2" href="faqs">
+            <Link color="inherit" variant="body2" href="#faqs">
               FAQs
             </Link>
           </Box>
