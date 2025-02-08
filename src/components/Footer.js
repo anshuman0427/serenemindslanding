@@ -84,7 +84,7 @@ export default function Footer() {
             <Link color="inherit" variant="body2" href="#pricing">
               Pricing
             </Link>
-            <Link color="inherit" variant="body2" href="#faqs">
+            <Link color="inherit" variant="body2" href="#faq">
               FAQs
             </Link>
           </Box>
