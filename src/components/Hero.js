@@ -44,13 +44,12 @@ export default function Hero() {
 
   return (
     <Box
-      sx={{
+      sx={(theme) => ({
         width: '100%',
         backgroundRepeat: 'no-repeat',
         backgroundImage:
           'radial-gradient(ellipse 80% 50% at 50% -20%, hsl(210, 100%, 90%), transparent)',
-        backgroundColor: '#ffffff', // Explicitly set light background
-      }}
+      })}
     >
       <Container
         sx={{
@@ -73,19 +72,18 @@ export default function Hero() {
               textAlign: 'center',
               whiteSpace: { xs: 'normal', sm: 'normal', md: 'nowrap' },
               lineHeight: 1.2,
-              color: 'text.primary', // Ensure light mode text color
             }}
           >
             The simplest way to manage your
           </Typography>
           <Typography
             variant="h1"
-            sx={{
+            sx={(theme) => ({
               fontSize: 'clamp(2.5rem, 8vw, 3.5rem)',
               textAlign: 'center',
               color: 'primary.main',
               lineHeight: 1.2,
-            }}
+            })}
           >
             Mental Health Practice
           </Typography>

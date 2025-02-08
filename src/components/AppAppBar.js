@@ -24,9 +24,11 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   borderRadius: `calc(${theme.shape.borderRadius}px + 8px)`,
   backdropFilter: 'blur(24px)',
   border: '1px solid',
-  borderColor: theme.palette.divider,
-  backgroundColor: alpha(theme.palette.background.default, 0.4), // Light mode background
-  boxShadow: theme.shadows[1],
+  borderColor: (theme.vars || theme).palette.divider,
+  backgroundColor: theme.vars
+    ? `rgba(${theme.vars.palette.background.defaultChannel} / 0.4)`
+    : alpha(theme.palette.background.default, 0.4),
+  boxShadow: (theme.vars || theme).shadows[1],
   padding: '8px 12px',
 }));
 
@@ -54,9 +56,10 @@ export default function AppAppBar() {
   return (
     <AppBar
       position="fixed"
+      enableColorOnDark
       sx={{
         boxShadow: 0,
-        bgcolor: 'transparent', // Transparent background
+        bgcolor: 'transparent',
         backgroundImage: 'none',
         mt: 'calc(var(--template-frame-height, 0px) + 28px)',
       }}

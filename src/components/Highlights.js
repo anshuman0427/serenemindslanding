@@ -54,67 +54,68 @@ const items = [
 export default function Highlights() {
   return (
     <Box id="features" sx={{ py: 8 }}>
-      <Box
+    <Box
+      
+      sx={{
+        pt: { xs: 4, sm: 12 },
+        pb: { xs: 8, sm: 16 },
+        color: 'white',
+        bgcolor: 'grey.900',
+      }}
+    >
+      <Container
         sx={{
-          pt: { xs: 4, sm: 12 },
-          pb: { xs: 8, sm: 16 },
-          color: 'text.primary', // Use default text color for light theme
-          bgcolor: 'background.paper', // Use default background color for light theme
+          position: 'relative',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: { xs: 3, sm: 6 },
         }}
       >
-        <Container
+        <Box
           sx={{
-            position: 'relative',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: { xs: 3, sm: 6 },
+            width: { sm: '100%', md: '60%' },
+            textAlign: { sm: 'left', md: 'center' },
           }}
         >
-          <Box
-            sx={{
-              width: { sm: '100%', md: '60%' },
-              textAlign: { sm: 'left', md: 'center' },
-            }}
-          >
-            <Typography component="h2" variant="h4" gutterBottom>
-              Features
-            </Typography>
-            <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-              Discover what makes Serene MINDS the perfect solution for mental health professionals: effortless adaptability, a user-friendly interface, secure patient management. Streamline your practice with our tools.
-            </Typography>
-          </Box>
-          <Grid container spacing={2}>
-            {items.map((item, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
-                <Stack
-                  direction="column"
-                  component={Card}
-                  spacing={1}
-                  useFlexGap
-                  sx={{
-                    color: 'inherit',
-                    p: 3,
-                    height: '100%',
-                    borderColor: 'divider', // Use default border color for light theme
-                    backgroundColor: 'background.default', // Use default card background color for light theme
-                  }}
-                >
-                  <Box sx={{ opacity: '50%' }}>{item.icon}</Box>
-                  <div>
-                    <Typography gutterBottom sx={{ fontWeight: 'medium' }}>
-                      {item.title}
-                    </Typography>
-                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                      {item.description}
-                    </Typography>
-                  </div>
-                </Stack>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
+          <Typography component="h2" variant="h4" gutterBottom>
+            Features
+          </Typography>
+          <Typography variant="body1" sx={{ color: 'grey.400' }}>
+          Discover what makes Serene MINDS the perfect solution for mental health professionals: effortless adaptability, a user-friendly interface, secure patient management. Streamline your practice with our tools.
+          </Typography>
+        </Box>
+        <Grid container spacing={2}>
+          {items.map((item, index) => (
+            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
+              <Stack
+                direction="column"
+                component={Card}
+                spacing={1}
+                useFlexGap
+                sx={{
+                  color: 'inherit',
+                  p: 3,
+                  height: '100%',
+                  borderColor: 'hsla(220, 25%, 25%, 0.3)',
+                  backgroundColor: 'grey.800',
+                }}
+              >
+                <Box sx={{ opacity: '50%' }}>{item.icon}</Box>
+                <div>
+                  <Typography gutterBottom sx={{ fontWeight: 'medium' }}>
+                    {item.title}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'grey.400' }}>
+                    {item.description}
+                  </Typography>
+                </div>
+              </Stack>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
     </Box>
   );
 }
