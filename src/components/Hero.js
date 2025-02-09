@@ -123,6 +123,7 @@ export default function Hero() {
               pt: 2,
               width: { xs: '100%', sm: '100%' },
               justifyContent: 'center',
+              alignItems: 'center', // Center vertically
             }}
           >
             {showButton ? (
@@ -135,7 +136,14 @@ export default function Hero() {
                 Get Started
               </Button>
             ) : (
-              <Typography variant="h6" sx={{ color: 'text.secondary' }}>
+              <Typography
+                variant="h6"
+                sx={{
+                  color: 'text.secondary',
+                  textAlign: 'center', // Center text horizontally
+                  width: '100%', // Ensure full width for centering
+                }}
+              >
                 {`${timeRemaining.days}d ${timeRemaining.hours}h ${timeRemaining.minutes}m ${timeRemaining.seconds}s`}
               </Typography>
             )}

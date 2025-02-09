@@ -160,14 +160,27 @@ export default function AppAppBar() {
                 </MenuItem>
                 <Divider sx={{ my: 3 }} />
                 <MenuItem>
-                  <Button
-                    color="secondary"
-                    variant="outlined"
-                    fullWidth
-                    onClick={handleSignUpClick}
-                  >
-                    Sign in
-                  </Button>
+                  {showButton ? (
+                    <Button
+                      color="secondary"
+                      variant="outlined"
+                      fullWidth
+                      onClick={handleSignUpClick}
+                    >
+                      Sign in
+                    </Button>
+                  ) : (
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: 'text.secondary',
+                        textAlign: 'center',
+                        width: '100%',
+                      }}
+                    >
+                      {`${timeRemaining.days}d ${timeRemaining.hours}h ${timeRemaining.minutes}m ${timeRemaining.seconds}s`}
+                    </Typography>
+                  )}
                 </MenuItem>
               </Box>
             </Drawer>
