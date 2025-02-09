@@ -28,13 +28,29 @@ const StyledBox = styled('div')(({ theme }) => ({
 
 export default function Hero() {
   const [openModal, setOpenModal] = React.useState(false);
-  const isDesktop = useMediaQuery((theme) => theme.breakpoints.up('md')); // Check if screen is desktop
+  const [timeRemaining, setTimeRemaining] = React.useState(calculateTimeRemaining());
+  const [showButton, setShowButton] = React.useState(false);
+  const isDesktop = useMediaQuery((theme) => theme.breakpoints.up('md'));
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      const remaining = calculateTimeRemaining();
+      setTimeRemaining(remaining);
+
+      if (remaining.total <= 0) {
+        clearInterval(timer);
+        setShowButton(true);
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const handleGetStartedClick = () => {
     if (isDesktop) {
-      window.location.href = 'https://professional.sereneminds.life/'; // Redirect on desktop
+      window.location.href = 'https://professional.sereneminds.life/';
     } else {
-      setOpenModal(true); // Show modal on mobile/tablet
+      setOpenModal(true);
     }
   };
 
@@ -109,16 +125,20 @@ export default function Hero() {
               justifyContent: 'center',
             }}
           >
-            <Button
-              variant="contained"
-              color="secondary"
-              sx={{
-                width: { xs: '100%', sm: '400px' },
-              }}
-              onClick={handleGetStartedClick} // Handle click
-            >
-              Get Started
-            </Button>
+            {showButton ? (
+              <Button
+                variant="contained"
+                color="secondary"
+                sx={{ width: { xs: '100%', sm: '400px' } }}
+                onClick={handleGetStartedClick}
+              >
+                Get Started
+              </Button>
+            ) : (
+              <Typography variant="h6" sx={{ color: 'text.secondary' }}>
+                {`${timeRemaining.days}d ${timeRemaining.hours}h ${timeRemaining.minutes}m ${timeRemaining.seconds}s`}
+              </Typography>
+            )}
           </Stack>
         </Stack>
         <StyledBox />
@@ -159,4 +179,21 @@ export default function Hero() {
       </Modal>
     </Box>
   );
+}
+
+function calculateTimeRemaining() {
+  const targetDate = new Date('2025-02-17T14:00:00');
+  const now = new Date();
+  const total = targetDate - now;
+
+  if (total <= 0) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0, total: 0 };
+  }
+
+  const days = Math.floor(total / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((total / (1000 * 60)) % 60);
+  const seconds = Math.floor((total / 1000) % 60);
+
+  return { days, hours, minutes, seconds, total };
 }
