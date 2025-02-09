@@ -12,7 +12,7 @@ function Copyright() {
   return (
     <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
       {'Copyright © '}
-      <RouterLink to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+      <RouterLink to="#" style={{ textDecoration: 'none', color: 'inherit' }}>
         Serene MINDS (Serenepulse Technologies Private Limited)
       </RouterLink>
       &nbsp;
