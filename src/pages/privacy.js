@@ -6,14 +6,11 @@ function PrivacyPolicy() {
   useEffect(() => {
     fetch('/privacy-policy.html')
       .then(response => response.text())
-      .then(html => setHtmlContent(html));
+      .then(html => setHtmlContent(html))
+      .catch(error => console.error('Error loading page:', error));
   }, []);
 
-  return (
-    <div 
-      dangerouslySetInnerHTML={{ __html: htmlContent }}
-    />
-  );
+  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
 }
 
 export default PrivacyPolicy;

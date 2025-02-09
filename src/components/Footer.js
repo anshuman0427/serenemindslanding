@@ -1,21 +1,20 @@
 import * as React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
-import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
 
 function Copyright() {
   return (
     <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
       {'Copyright © '}
-      <Link color="text.secondary" href="https://sereneminds.life/">
+      <RouterLink to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
         Serene MINDS (Serenepulse Technologies Private Limited)
-      </Link>
+      </RouterLink>
       &nbsp;
       {new Date().getFullYear()}
     </Typography>
@@ -50,21 +49,12 @@ export default function Footer() {
               Empowering wellness through innovative technology.
             </Typography>
             <Stack direction="row" spacing={2}>
-              <IconButton
-                color="inherit"
-                href="https://instagram.com/sereneminds.life"
-                aria-label="Instagram"
-              >
+              <IconButton color="inherit" href="https://instagram.com/sereneminds.life" aria-label="Instagram">
                 <InstagramIcon />
               </IconButton>
-              <IconButton
-                color="inherit"
-                href="https://www.linkedin.com/company/sereneminds-app/"
-                aria-label="LinkedIn"
-              >
+              <IconButton color="inherit" href="https://www.linkedin.com/company/sereneminds-app/" aria-label="LinkedIn">
                 <LinkedInIcon />
               </IconButton>
-              
             </Stack>
           </Box>
 
@@ -72,42 +62,38 @@ export default function Footer() {
             <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'text.primary' }}>
               Product
             </Typography>
-            <Link color="inherit" variant="body2" href="#highlights">
+            <RouterLink to="/#highlights" style={{ textDecoration: 'none', color: 'inherit' }}>
               Highlights
-            </Link>
-            {/* <Link color="inherit" variant="body2" href="#">
-              Testimonials
-            </Link> */}
-            <Link color="inherit" variant="body2" href="#features">
+            </RouterLink>
+            <RouterLink to="/#features" style={{ textDecoration: 'none', color: 'inherit' }}>
               Features
-            </Link>
-            <Link color="inherit" variant="body2" href="#pricing">
+            </RouterLink>
+            <RouterLink to="/#pricing" style={{ textDecoration: 'none', color: 'inherit' }}>
               Pricing
-            </Link>
-            <Link color="inherit" variant="body2" href="#faq">
+            </RouterLink>
+            <RouterLink to="/#faq" style={{ textDecoration: 'none', color: 'inherit' }}>
               FAQs
-            </Link>
+            </RouterLink>
           </Box>
 
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
             <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'text.primary' }}>
               Legal
             </Typography>
-            <Link color="inherit" variant="body2" href="#">
+            <RouterLink to="/terms" style={{ textDecoration: 'none', color: 'inherit' }}>
               Terms of Use
-            </Link>
-            <Link color="inherit" variant="body2" href="#">
+            </RouterLink>
+            <RouterLink to="/privacy-policy" style={{ textDecoration: 'none', color: 'inherit' }}>
               Privacy Policy
-            </Link>
-            <Link color="inherit" variant="body2" href="#">
+            </RouterLink>
+            <RouterLink to="/refund-policy" style={{ textDecoration: 'none', color: 'inherit' }}>
               Refund Policy
-            </Link>
-            <Link color="inherit" variant="body2" href="#">
+            </RouterLink>
+            <RouterLink to="/contact" style={{ textDecoration: 'none', color: 'inherit' }}>
               Contact
-            </Link>
+            </RouterLink>
           </Box>
 
-          {/* Add Serene MINDS image here */}
           <Box
             sx={{
               display: 'flex',
@@ -116,7 +102,7 @@ export default function Footer() {
             }}
           >
             <img
-              src="/SM.png" // Path to the image in the public folder
+              src="/SM.png"
               alt="Serene MINDS"
               style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }}
             />
@@ -136,17 +122,71 @@ export default function Footer() {
         >
           <Copyright />
           <Stack direction="row" spacing={2} sx={{ mt: { xs: 2, sm: 0 } }}>
-            <Link color="inherit" variant="body2" href="#">
+            <RouterLink
+              to="/privacy-policy"
+              style={{ textDecoration: 'none', color: 'inherit', position: 'relative' }}
+              sx={{
+                '&::after': {
+                  content: '""',
+                  position: 'absolute',
+                  left: 0,
+                  bottom: '-2px',
+                  width: '0%',
+                  height: '2px',
+                  backgroundColor: 'currentColor',
+                  transition: 'width 0.3s ease-in-out',
+                },
+                '&:hover::after': {
+                  width: '100%',
+                },
+              }}
+            >
               Privacy Policy
-            </Link>
+            </RouterLink>
             <Typography sx={{ opacity: 0.5 }}>•</Typography>
-            <Link color="inherit" variant="body2" href="#">
+            <RouterLink
+              to="/terms"
+              style={{ textDecoration: 'none', color: 'inherit', position: 'relative' }}
+              sx={{
+                '&::after': {
+                  content: '""',
+                  position: 'absolute',
+                  left: 0,
+                  bottom: '-2px',
+                  width: '0%',
+                  height: '2px',
+                  backgroundColor: 'currentColor',
+                  transition: 'width 0.3s ease-in-out',
+                },
+                '&:hover::after': {
+                  width: '100%',
+                },
+              }}
+            >
               Terms of Use
-            </Link>
+            </RouterLink>
             <Typography sx={{ opacity: 0.5 }}>•</Typography>
-            <Link color="inherit" variant="body2" href="#">
+            <RouterLink
+              to="/refund-policy"
+              style={{ textDecoration: 'none', color: 'inherit', position: 'relative' }}
+              sx={{
+                '&::after': {
+                  content: '""',
+                  position: 'absolute',
+                  left: 0,
+                  bottom: '-2px',
+                  width: '0%',
+                  height: '2px',
+                  backgroundColor: 'currentColor',
+                  transition: 'width 0.3s ease-in-out',
+                },
+                '&:hover::after': {
+                  width: '100%',
+                },
+              }}
+            >
               Refund Policy
-            </Link>
+            </RouterLink>
           </Stack>
         </Box>
       </Container>
