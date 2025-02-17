@@ -226,7 +226,7 @@ export default function AppAppBar() {
 }
 
 function calculateTimeRemaining() {
-  const targetDate = new Date('2025-02-17T14:00:00');
+  const targetDate = new Date('2025-02-21T14:00:00');
   const now = new Date();
   const total = targetDate - now;
 
